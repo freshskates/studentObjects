@@ -8,10 +8,6 @@ struct Student
     string address;
     string zip;
 
-
-
-
-
 };  
 
 Student check(Student& user, int number) {
