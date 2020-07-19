@@ -7,10 +7,11 @@ struct Student
     string name;
     string address;
     string zip;
-
+    float gpa; 
 };  
 
-Student check(Student& user, int number) {
+Student input(Student& user, int number) // lots of trouble shooting, re read chapters of book to find out meaning of * and &
+{ 
     cout << "Enter for Student " << number << endl;
     cout << "Name: ";
     cin >> user.name;
@@ -21,24 +22,25 @@ Student check(Student& user, int number) {
     cout << "Zip: ";
     cin >> user.zip;
     cin.ignore(1000, 10);
+    cout << "gpa: ";
+    cin >> user.gpa;
+    cin.ignore(1000, 10);
     return user;
 }
-void output(Student& user) {
-    cout << user.name << endl;
-    cout << user.address << endl;
-    cout << user.zip << endl;
+void output(Student user, int number) 
+{
+    cout << "Output for Student " << number << endl; 
+    cout << "name: " << user.name << endl;
+    cout << "address: " << user.address << endl;
+    cout << "zip code: " << user.zip << endl;
+    cout << "gpa: " << user.gpa << endl << endl;
 
 }
 int main()
 {
-    Student robert, joe, moma, cuh;
-    check(robert, 1);
-    check(joe, 2);
-    check(moma, 3);
-    check(cuh, 4);
-    output(robert);
-    output(joe);
-    output(moma);
-    output(cuh);
+    const int students = 1; 
+    Student list[students];
+    for (int i = 0; i < students; i++) input(list[i], i + 1);
+    for (int i = 0; i < students; i++) output(list[i], i + 1);
 
 }
